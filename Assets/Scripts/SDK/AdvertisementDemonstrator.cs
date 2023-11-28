@@ -1,53 +1,56 @@
-using UnityEngine;
 using Agava.YandexGames;
+using UnityEngine;
 using UnityEngine.UI;
 
-public class AdvertisementDemonstrator : MonoBehaviour
+namespace SDK
 {
-    [SerializeField] private Image _advertisementPanel;
-    [SerializeField] private SoundsVolume _soundsVolume;
-
-    private int _attemptCount;
-
-    private void Start()
+    public class AdvertisementDemonstrator : MonoBehaviour
     {
-        TryShow();
-    }
+        [SerializeField] private int _advertisementDemonstrationFrequency = 3;
+        [SerializeField] private Image _advertisementPanel;
 
-    public void OnStartPlayButtonClick()
-    {
-        _advertisementPanel.gameObject.SetActive(false);
-        _soundsVolume.SetVolumeValues();
+        private int _attemptCount;
 
-        Time.timeScale = 1;
-    }
-
-    private void TryShow()
-    {
-        IncreaseAttemptsCount();
-
-        if (_attemptCount % 3 == 0)
+        private void Awake()
         {
-            _soundsVolume.Stop();
-            Show();
-
-            Time.timeScale = 0;
+            IncreaseAttemptsCount();
+            TryShow();
         }
-        else
+
+        public void OnStartPlayButtonClick()
         {
             _advertisementPanel.gameObject.SetActive(false);
+            Time.timeScale = 1;
         }
-    }
 
-    private void IncreaseAttemptsCount()
-    {
-        _attemptCount = UnityEngine.PlayerPrefs.GetInt("AttemptCount");
-        _attemptCount++;
-        UnityEngine.PlayerPrefs.SetInt("AttemptCount", _attemptCount);
-    }
+        private bool TryShow()
+        {
+            if (_attemptCount % _advertisementDemonstrationFrequency == 0)
+            {
+                StopGame();
+                Show();
 
-    private void Show()
-    {
-        InterstitialAd.Show();
+                return true;
+            }
+            else
+            {
+                _advertisementPanel.gameObject.SetActive(false);
+
+                return false;
+            }
+        }
+
+        private void IncreaseAttemptsCount()
+        {
+            _attemptCount = UnityEngine.PlayerPrefs.GetInt("AttemptCount");
+            _attemptCount++;
+            UnityEngine.PlayerPrefs.SetInt("AttemptCount", _attemptCount);
+        }
+
+        private void StopGame() =>
+            Time.timeScale = 0;
+
+        private void Show() =>
+            InterstitialAd.Show();
     }
 }

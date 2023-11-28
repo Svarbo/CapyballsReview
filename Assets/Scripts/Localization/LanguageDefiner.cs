@@ -1,29 +1,55 @@
-using UnityEngine;
 using Agava.YandexGames;
+using ConstantValues;
+using UnityEngine;
+using PlayerPrefs = UnityEngine.PlayerPrefs;
 
-public class LanguageDefiner : MonoBehaviour
+namespace Localization
 {
-    public bool TryDefineLanguage()
+    public class LanguageDefiner : MonoBehaviour
     {
-        bool languageWasChanged = UnityEngine.PlayerPrefs.GetInt("LanguageWasChanged") == 1;
+        [SerializeField] private LanguageData _languageData;
 
-        if (languageWasChanged != true)
-            DefineLanguage();
+        public bool TryDefineLanguage()
+        {
+            bool languageWasChanged = _languageData.LanguageWasChanged;
 
-        return !languageWasChanged;
-    }
+            if (languageWasChanged != true)
+                DefineLanguage();
 
-    private void DefineLanguage()
-    {
-        string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
+            return !languageWasChanged;
+        }
 
-        if (languageDesignation == "ru" || languageDesignation == "be" || languageDesignation == "kk" || languageDesignation == "uk" || languageDesignation == "uz")
-            UnityEngine.PlayerPrefs.SetInt("LanguageIndex", 0);
-        else if (languageDesignation == "tr")
-            UnityEngine.PlayerPrefs.SetInt("LanguageIndex", 2);
-        else
-            UnityEngine.PlayerPrefs.SetInt("LanguageIndex", 1);
+        private void DefineLanguage()
+        {
+            string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
+            string playerPrefsLanguageIndex = PlayerPrefsNames.LanguageIndex;
 
-        UnityEngine.PlayerPrefs.Save();
+            switch (languageDesignation)
+            {
+                case LanguageInfo.RussianDesignation:
+                    PlayerPrefs.SetInt(playerPrefsLanguageIndex, LanguageInfo.RussianLanguageIndex);
+                    break;
+                case LanguageInfo.BelarusianDesignation:
+                    PlayerPrefs.SetInt(playerPrefsLanguageIndex, LanguageInfo.RussianLanguageIndex);
+                    break;
+                case LanguageInfo.KazakhDesignation:
+                    PlayerPrefs.SetInt(playerPrefsLanguageIndex, LanguageInfo.RussianLanguageIndex);
+                    break;
+                case LanguageInfo.UkrainianDesignation:
+                    PlayerPrefs.SetInt(playerPrefsLanguageIndex, LanguageInfo.RussianLanguageIndex);
+                    break;
+                case LanguageInfo.UzbekDesignation:
+                    PlayerPrefs.SetInt(playerPrefsLanguageIndex, LanguageInfo.RussianLanguageIndex);
+                    break;
+                case LanguageInfo.TurkishDesignation:
+                    PlayerPrefs.SetInt(playerPrefsLanguageIndex, LanguageInfo.TurkishLanguageIndex);
+                    break;
+                default:
+                    PlayerPrefs.SetInt(playerPrefsLanguageIndex, LanguageInfo.EnglishLanguageIndex);
+                    break;
+            }
+
+            PlayerPrefs.Save();
+        }
     }
 }

@@ -1,36 +1,26 @@
-using UnityEngine;
-using System.Collections;
 using Agava.YandexGames;
+using Localization;
+using System.Collections;
+using UnityEngine;
 
-public class SDKInstantiator : MonoBehaviour
+namespace SDK
 {
-    [SerializeField] private SoundsVolume _soundsVolume;
-    [SerializeField] private LanguageDefiner _languageDefiner;
-
-    private void Awake()
+    public class SDKInstantiator : MonoBehaviour
     {
-        YandexGamesSdk.CallbackLogging = true;
-        PlayerAccount.AuthorizedInBackground += OnAuthorizedInBackground;
-    }
+        [SerializeField] private LanguageDefiner _languageDefiner;
 
-    private IEnumerator Start()
-    {
-        yield return YandexGamesSdk.Initialize();
+        private void Awake() =>
+            StartCoroutine(Initialize());
 
-        if (PlayerAccount.IsAuthorized == false)
-            PlayerAccount.StartAuthorizationPolling(1500);
+        private IEnumerator Initialize()
+        {
+            yield return YandexGamesSdk.Initialize();
 
-        _soundsVolume.SetVolumeValues();
-        _languageDefiner.TryDefineLanguage();
-    }
+            if (PlayerAccount.IsAuthorized == false)
+                PlayerAccount.StartAuthorizationPolling(1500);
 
-    private void OnDestroy()
-    {
-        PlayerAccount.AuthorizedInBackground -= OnAuthorizedInBackground;
-    }
-
-    private void OnAuthorizedInBackground()
-    {
-        Debug.Log($"{nameof(OnAuthorizedInBackground)} {PlayerAccount.IsAuthorized}");
+            //_soundsVolume.SetValues();
+            _languageDefiner.TryDefineLanguage();
+        }
     }
 }

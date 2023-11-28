@@ -2,33 +2,34 @@ using System.Collections.Generic;
 using System.Linq;
 using UnityEngine;
 
-public class ObjectPool : MonoBehaviour
+namespace Capyballs
 {
-    [SerializeField] private int _capacity;
-    [SerializeField] private GameObject _prefab;
-
-    private List<GameObject> _pool = new List<GameObject>();
-
-    private void Awake()
+    public class ObjectPool : MonoBehaviour
     {
-        Initialize();
-    }
+        [SerializeField] private int _capacity;
+        [SerializeField] private GameObject _prefab;
 
-    private void Initialize()
-    {
-        for(int i = 0; i < _capacity; i++)
+        private List<GameObject> _pool = new List<GameObject>();
+
+        private void Awake() =>
+            Initialize();
+
+        public bool TryGetObject(out GameObject result)
         {
-            GameObject spawned = Instantiate(_prefab, transform);
-            spawned.SetActive(false);
+            result = _pool.First(p => p.activeSelf == false);
 
-            _pool.Add(spawned);
+            return result != null;
         }
-    }
 
-    public bool TryGetObject(out GameObject result)
-    {
-        result = _pool.First(p => p.activeSelf == false);
+        private void Initialize()
+        {
+            for (int i = 0; i < _capacity; i++)
+            {
+                GameObject spawned = Instantiate(_prefab, transform);
+                spawned.SetActive(false);
 
-        return result != null;
+                _pool.Add(spawned);
+            }
+        }
     }
 }
