@@ -18,12 +18,12 @@ namespace LevelCreation
 
         public int NeededPermutationsNumber => _platformIndexes.Count - SpecialPlatformsCount;
 
-        private void Awake()
-        {
-            Time.timeScale = 1;
+        //private void Awake()
+        //{
+        //    Time.timeScale = 1;
 
-            PreparePlatformIndexes(_levelLoader.LevelNumber);
-        }
+        //    PreparePlatformIndexes(_levelLoader.LevelNumber);
+        //}
 
         public int TakeCurrentPlatformIndex()
         {
@@ -32,9 +32,9 @@ namespace LevelCreation
             return _platformIndexes[_currentPlatformIndex];
         }
 
-        private void PreparePlatformIndexes(int levelNumber)
+        public void PreparePlatformIndexes()
         {
-            Platforms linksIndexes = _data.GetNeededLinksIndexes(levelNumber);
+            Platforms linksIndexes = _data.GetNeededLinksIndexes(_levelLoader.LevelNumber);
             List<int> indexes = linksIndexes.TakeIndexes();
 
             foreach (int index in indexes)

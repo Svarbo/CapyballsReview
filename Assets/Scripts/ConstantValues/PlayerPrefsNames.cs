@@ -1,6 +1,6 @@
 namespace ConstantValues
 {
-    public static class PlayerPrefsNames
+    public class PlayerPrefsNames
     {
         public const string Volume = "Volume";
         public const string LanguageIndex = "LanguageIndex";

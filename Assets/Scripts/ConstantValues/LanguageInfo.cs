@@ -1,6 +1,6 @@
 namespace ConstantValues
 {
-    public static class LanguageInfo
+    public class LanguageInfo
     {
         public const int RussianLanguageIndex = 0;
         public const int EnglishLanguageIndex = 1;

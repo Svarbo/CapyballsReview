@@ -1,6 +1,6 @@
 namespace ConstantValues
 {
-    public static class Leaderboard
+    public class Leaderboard
     {
         public const string Name = "Leaderboard1";
     }

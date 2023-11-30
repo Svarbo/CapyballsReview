@@ -743,19 +743,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 59496012}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuSwitcher, Assembly-CSharp
-        m_MethodName: EnableSettings
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &59496012
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1982,7 +1970,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.3562208}
   m_AnchorMax: {x: 0.23900001, y: 0.4816128}
-  m_AnchoredPosition: {x: -2.9971924, y: 0.39746094}
+  m_AnchoredPosition: {x: -2.9971619, y: 0.39746094}
   m_SizeDelta: {x: -1.9401855, y: -3.5167236}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &183880605
@@ -4158,7 +4146,7 @@ GameObject:
   - component: {fileID: 562244145}
   - component: {fileID: 562244144}
   m_Layer: 5
-  m_Name: PlayButton
+  m_Name: LevelMenuButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -4228,19 +4216,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 562244145}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuSwitcher, Assembly-CSharp
-        m_MethodName: EnableLevelMenu
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &562244145
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4317,7 +4293,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.6801712}
   m_AnchorMax: {x: 0.23900001, y: 0.8041217}
-  m_AnchoredPosition: {x: -2.9971924, y: -1.6025391}
+  m_AnchoredPosition: {x: -2.9971619, y: -1.6025391}
   m_SizeDelta: {x: -1.9401855, y: -3.5167236}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &567958380
@@ -4577,13 +4553,14 @@ GameObject:
   - component: {fileID: 628247439}
   - component: {fileID: 628247441}
   - component: {fileID: 628247440}
+  - component: {fileID: 628247442}
   m_Layer: 5
   m_Name: MainMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &628247439
 RectTransform:
   m_ObjectHideFlags: 0
@@ -4644,6 +4621,22 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 628247438}
   m_CullTransparentMesh: 1
+--- !u!114 &628247442
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 628247438}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d261a52f7d922e244b8c7b799e202292, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _menuSwitcher: {fileID: 2097486953}
+  _levelMenuButton: {fileID: 562244144}
+  _settingsButton: {fileID: 59496011}
+  _leaderboardButton: {fileID: 1238119435}
 --- !u!1 &633385212
 GameObject:
   m_ObjectHideFlags: 0
@@ -7755,7 +7748,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.196464}
   m_AnchorMax: {x: 0.23900001, y: 0.323}
-  m_AnchoredPosition: {x: -2.9971924, y: 0.39746094}
+  m_AnchoredPosition: {x: -2.9971619, y: 0.39746094}
   m_SizeDelta: {x: -1.9401855, y: -6.5167236}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &942223577
@@ -10233,7 +10226,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.8353154}
   m_AnchorMax: {x: 0.23900001, y: 0.9622673}
-  m_AnchoredPosition: {x: -2.9971924, y: -3.602539}
+  m_AnchoredPosition: {x: -2.9971619, y: -3.602539}
   m_SizeDelta: {x: -0.94018555, y: -7.5167236}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1217118426
@@ -10534,19 +10527,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1238119436}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_TargetAssemblyTypeName: MenuSwitcher, Assembly-CSharp
-        m_MethodName: EnableLeaderboard
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &1238119436
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -12716,7 +12697,6 @@ GameObject:
   - component: {fileID: 1530581606}
   - component: {fileID: 1530581609}
   - component: {fileID: 1530581608}
-  - component: {fileID: 1530581607}
   m_Layer: 5
   m_Name: LevelButtons
   m_TagString: Untagged
@@ -12768,19 +12748,6 @@ RectTransform:
   m_AnchoredPosition: {x: 2.9820557, y: 3.4986572}
   m_SizeDelta: {x: -13.23999, y: -4.734009}
   m_Pivot: {x: 0.5, y: 0.5}
---- !u!114 &1530581607
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1530581605}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: fbdcdf7e33d273f449d1fadde79efada, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _levelButtons: []
 --- !u!114 &1530581608
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -14167,7 +14134,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.51724327}
   m_AnchorMax: {x: 0.23900001, y: 0.64127034}
-  m_AnchoredPosition: {x: -2.9971924, y: -2.6025085}
+  m_AnchoredPosition: {x: -2.9971619, y: -2.6025085}
   m_SizeDelta: {x: -1.9401855, y: -1.5167236}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1658809421
@@ -14580,7 +14547,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 19bf38c4630e3664e9b865bf9078fc08, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _languageData: {fileID: 0}
+  _languageData: {fileID: 11400000, guid: 089cc5f2d457a39419bd18665ce7b0c1, type: 2}
 --- !u!4 &1686775589
 Transform:
   m_ObjectHideFlags: 0
@@ -15666,7 +15633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.067, y: 0.038342405}
   m_AnchorMax: {x: 0.23900001, y: 0.16746879}
-  m_AnchoredPosition: {x: -2.9971924, y: -1.6025391}
+  m_AnchoredPosition: {x: -2.9971619, y: -1.6025391}
   m_SizeDelta: {x: -1.9401855, y: -11.516724}
   m_Pivot: {x: 0, y: 1}
 --- !u!114 &1802203670
@@ -16500,13 +16467,14 @@ GameObject:
   - component: {fileID: 1857647913}
   - component: {fileID: 1857647915}
   - component: {fileID: 1857647914}
+  - component: {fileID: 1857647916}
   m_Layer: 5
   m_Name: LevelMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1857647913
 RectTransform:
   m_ObjectHideFlags: 0
@@ -16568,6 +16536,20 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1857647912}
   m_CullTransparentMesh: 1
+--- !u!114 &1857647916
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1857647912}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fbdcdf7e33d273f449d1fadde79efada, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _levelButtons: []
+  _sceneLoader: {fileID: 0}
 --- !u!1 &1891270164
 GameObject:
   m_ObjectHideFlags: 0
