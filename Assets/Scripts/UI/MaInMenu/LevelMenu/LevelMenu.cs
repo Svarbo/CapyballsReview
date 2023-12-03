@@ -2,13 +2,14 @@ using ConstantValues;
 using GameLoading;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 namespace UI
 {
     public class LevelMenu : MonoBehaviour
     {
-        [SerializeField] private List<LevelButton> _levelButtons = new List<LevelButton>();
-        [SerializeField] private SceneLoader _sceneLoader;
+        [SerializeField] private List<Button> _levelButtons = new List<Button>();
+        [SerializeField] private List<Image> _croses = new List<Image>();
 
         private void OnEnable() =>
             ShowOpenLevels();
@@ -18,19 +19,10 @@ namespace UI
             int openLevelsNumber = PlayerPrefs.GetInt(PlayerPrefsNames.OpenLevelsNumber);
 
             for (int i = 0; i < openLevelsNumber; i++)
-                _levelButtons[i].Draw();
-        }
-
-        private void Subscribe()
-        {
-            for(int i = 0; i < _levelButtons.Count; i++)
-                _levelButtons[i].onClick.AddListener(() => _sceneLoader.LoadLevel(i));
-        }
-
-        private void Unsubscribe()
-        {
-            for (int i = 0; i < _levelButtons.Count; i++)
-                _levelButtons[i].onClick.RemoveAllListeners();
+            {
+                _levelButtons[i].interactable = true;
+                _croses[i].gameObject.SetActive(false);
+            }
         }
     }
 }

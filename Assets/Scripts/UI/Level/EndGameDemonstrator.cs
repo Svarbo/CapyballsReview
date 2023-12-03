@@ -9,34 +9,34 @@ namespace UI
 {
     public class EndGameDemonstrator : MonoBehaviour
     {
-        [SerializeField] private BallsContainer _ballContainer;
+        [SerializeField] private BallsContainer _ballsContainer;
         [SerializeField] private LevelLoader _levelLoader;
         [SerializeField] private Image _defeatPanel;
         [SerializeField] private Image _winPanel;
         [SerializeField] private TMP_Text _winScoreText;
 
         private void OnEnable() =>
-            _ballContainer.IsGameEnd += DetermineOutcome;
+            _ballsContainer.IsGameEnd += DetermineOutcome;
 
         private void OnDisable() =>
-            _ballContainer.IsGameEnd -= DetermineOutcome;
+            _ballsContainer.IsGameEnd -= DetermineOutcome;
 
         private void DetermineOutcome()
         {
-            Time.timeScale = 0;
-
-            if(_ballContainer.Score < 0 || _ballContainer.SnairedBallsCount == _ballContainer.Score)
+            if(_ballsContainer.Score < 0 || _ballsContainer.SnairedBallsCount == _ballsContainer.Score)
                 DeclareDefeat();
             else
                 DeclareWin();
+
+            Time.timeScale = 0;
         }
 
         private void DeclareWin()
         {
             TryOpenNextLevel();
-            _ballContainer.UpdateLeaderboardScore();
+            _ballsContainer.UpdateLeaderboardScore();
 
-            _winScoreText.text = _ballContainer.Score.ToString();
+            _winScoreText.text = _ballsContainer.Score.ToString();
             _winPanel.gameObject.SetActive(true);
         }
 

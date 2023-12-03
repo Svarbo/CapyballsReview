@@ -6,16 +6,16 @@ namespace Traps
     [RequireComponent(typeof(Collider))]
     public class BallsRemoveZone : MonoBehaviour
     {
-        private BallsContainer _ballContainer;
+        private BallsContainer _ballsContainer;
 
         private void OnTriggerEnter(Collider collider)
         {
             if (collider.TryGetComponent<Ball>(out Ball ball))
             {
-                if(_ballContainer == null)
-                    _ballContainer = GetComponentInParent<BallsContainer>();
+                if(_ballsContainer == null)
+                    _ballsContainer = ball.GetComponentInParent<BallsContainer>();
 
-                _ballContainer.RemoveBall(ball);
+                _ballsContainer.RemoveBall(ball);
             }
         }
     }

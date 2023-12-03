@@ -11,7 +11,7 @@ namespace LevelCreation
         private List<Platforms> _platforms = new List<Platforms>();
         private int _currentIndex = 0;
 
-        public int PlatformsCount => _platforms.Count;
+        //public int PlatformsCount => _platforms.Count;
 
         public Platforms GetNeededLinksIndexes(int neededIndex) =>
             _platforms[neededIndex];

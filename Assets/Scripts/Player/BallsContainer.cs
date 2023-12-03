@@ -56,7 +56,7 @@ namespace Player
             currentScore += Score;
 
             UnityEngine.PlayerPrefs.SetInt("PlayerScore", currentScore);
-            Leaderboard.SetScore("Leaderboard1", currentScore);
+            //Leaderboard.SetScore("Leaderboard1", currentScore);
         }
         //
 

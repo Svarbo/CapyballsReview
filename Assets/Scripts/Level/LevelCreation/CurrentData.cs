@@ -14,7 +14,7 @@ namespace LevelCreation
         [SerializeField] private LevelLoader _levelLoader;
 
         private List<int> _platformIndexes = new List<int>();
-        private int _currentPlatformIndex = 0;
+        private int _currentPlatformIndex = -1;
 
         public int NeededPermutationsNumber => _platformIndexes.Count - SpecialPlatformsCount;
 
@@ -27,7 +27,7 @@ namespace LevelCreation
 
         public int TakeCurrentPlatformIndex()
         {
-            ++_currentPlatformIndex;
+            _currentPlatformIndex++;
 
             return _platformIndexes[_currentPlatformIndex];
         }

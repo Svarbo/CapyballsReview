@@ -26,6 +26,9 @@ namespace LevelCreation
 
             GUILayout.EndHorizontal();
             base.OnInspectorGUI();
+
+            if (GUI.changed)
+                EditorUtility.SetDirty(_levelsData);
         }
     }
 }
