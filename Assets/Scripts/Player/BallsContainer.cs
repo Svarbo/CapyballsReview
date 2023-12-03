@@ -1,5 +1,5 @@
-using Agava.YandexGames;
 using Capyballs;
+using ConstantValues;
 using System;
 using System.Collections.Generic;
 using UnityEngine;
@@ -49,16 +49,15 @@ namespace Player
             if (Score == 0)
                 IsGameEnd?.Invoke();
         }
-        //Вынести логику отсюда
+
         public void UpdateLeaderboardScore()
         {
-            int currentScore = UnityEngine.PlayerPrefs.GetInt("PlayerScore");
+            int currentScore = UnityEngine.PlayerPrefs.GetInt(PlayerPrefsNames.PlayerScore);
             currentScore += Score;
 
-            UnityEngine.PlayerPrefs.SetInt("PlayerScore", currentScore);
-            //Leaderboard.SetScore("Leaderboard1", currentScore);
+            UnityEngine.PlayerPrefs.SetInt(PlayerPrefsNames.PlayerScore, currentScore);
+            Agava.YandexGames.Leaderboard.SetScore(ConstantValues.Leaderboard.Name, currentScore);
         }
-        //
 
         public void AchiveFinish() =>
             IsGameEnd?.Invoke();

@@ -1,4 +1,5 @@
 using Player;
+using System.Collections.Generic;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,7 @@ namespace Level
         [SerializeField] private TMP_Text _neededBallsText;
 
         private BallsContainer _ballsContainer;
+        private List<Ball> _snairedBalls = new List<Ball>();
         private int _ballsCount = 0;
 
         private void Awake() =>
@@ -38,7 +40,9 @@ namespace Level
         {
             _ballsCount++;
             ChangeNeededBallsText();
+
             _ballsContainer.EnsnareBall(ball);
+            _snairedBalls.Add(ball);
         }
 
         private bool TryOpenGates()
@@ -46,7 +50,12 @@ namespace Level
             bool isEnough = _ballsCount >= _barrier.NeededBallsCount;
 
             if (isEnough)
+            {
                 _barrier.Open();
+
+                foreach (Ball ball in _snairedBalls)
+                    _ballsContainer.UnsnaireBall(ball);
+            }
 
             return isEnough;
         }
