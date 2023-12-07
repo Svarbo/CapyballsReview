@@ -19,8 +19,7 @@ namespace SDK
             if (PlayerAccount.IsAuthorized == false)
                 PlayerAccount.StartAuthorizationPolling(1500);
 
-            //_soundsVolume.SetValues();
-            _languageDefiner.TryDefineLanguage();
+            _languageDefiner.DefineLanguage();
         }
     }
 }

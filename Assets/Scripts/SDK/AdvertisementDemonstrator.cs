@@ -14,30 +14,17 @@ namespace SDK
         private void Awake()
         {
             IncreaseAttemptsCount();
-            TryShow();
+
+            if (_attemptCount % _advertisementDemonstrationFrequency == 0)
+                Demonstrate();
+            else
+                _advertisementPanel.gameObject.SetActive(false);
         }
 
         public void OnStartPlayButtonClick()
         {
             _advertisementPanel.gameObject.SetActive(false);
             Time.timeScale = 1;
-        }
-
-        private bool TryShow()
-        {
-            if (_attemptCount % _advertisementDemonstrationFrequency == 0)
-            {
-                StopGame();
-                Show();
-
-                return true;
-            }
-            else
-            {
-                _advertisementPanel.gameObject.SetActive(false);
-
-                return false;
-            }
         }
 
         private void IncreaseAttemptsCount()
@@ -47,10 +34,10 @@ namespace SDK
             UnityEngine.PlayerPrefs.SetInt("AttemptCount", _attemptCount);
         }
 
-        private void StopGame() =>
+        private void Demonstrate()
+        {
             Time.timeScale = 0;
-
-        private void Show() =>
             InterstitialAd.Show();
+        }
     }
 }

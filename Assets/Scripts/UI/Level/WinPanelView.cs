@@ -14,7 +14,6 @@ namespace UI
         {
             _nextLevelButton.onClick.AddListener(_sceneLoader.LoadNextLevel);
             _menuButton.onClick.AddListener(_sceneLoader.LoadMainMenu);
-
         }
 
         private void OnDisable()

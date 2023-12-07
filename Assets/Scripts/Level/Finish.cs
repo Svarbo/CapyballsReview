@@ -13,7 +13,7 @@ namespace Level
         {
             if (collider.TryGetComponent<Ball>(out Ball ball))
             {
-                if(_ballContainer == null)
+                if (_ballContainer == null)
                     _ballContainer = ball.GetComponentInParent<BallsContainer>();
 
                 AbsorbeBall(ball);

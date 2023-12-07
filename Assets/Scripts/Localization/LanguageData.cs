@@ -9,7 +9,7 @@ namespace Localization
 
         public bool LanguageWasChanged => _languageWasChanged;
 
-        public void SetLanguageWasChanged(bool value) => 
+        public void SetLanguageWasChanged(bool value) =>
             _languageWasChanged = value;
     }
 }

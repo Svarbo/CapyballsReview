@@ -7,13 +7,13 @@ namespace UI
     {
         [SerializeField] private Button _exitButton;
 
-        private void OnEnable() => 
+        private void OnEnable() =>
             _exitButton.onClick.AddListener(OnExitButtonClick);
 
-        private void OnDisable() => 
+        private void OnDisable() =>
             _exitButton.onClick.RemoveListener(OnExitButtonClick);
 
-        public void OnExitButtonClick() => 
+        public void OnExitButtonClick() =>
             gameObject.SetActive(false);
     }
 }

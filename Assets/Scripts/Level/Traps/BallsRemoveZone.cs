@@ -12,7 +12,7 @@ namespace Traps
         {
             if (collider.TryGetComponent<Ball>(out Ball ball))
             {
-                if(_ballsContainer == null)
+                if (_ballsContainer == null)
                     _ballsContainer = ball.GetComponentInParent<BallsContainer>();
 
                 _ballsContainer.RemoveBall(ball);

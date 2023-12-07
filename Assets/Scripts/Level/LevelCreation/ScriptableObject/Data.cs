@@ -11,7 +11,26 @@ namespace LevelCreation
         private List<Platforms> _platforms = new List<Platforms>();
         private int _currentIndex = 0;
 
-        //public int PlatformsCount => _platforms.Count;
+        public int PlatformsCount => _platforms.Count;
+
+        public Platforms this[int index]
+        {
+            get
+            {
+                if (_platforms != null && index >= 0 && index < _platforms.Count)
+                    return _platforms[index];
+
+                return null;
+            }
+            set
+            {
+                if (_platforms == null)
+                    _platforms = new List<Platforms>();
+
+                if (index >= 0 && index < _platforms.Count && value != null)
+                    _platforms[index] = value;
+            }
+        }
 
         public Platforms GetNeededLinksIndexes(int neededIndex) =>
             _platforms[neededIndex];
@@ -22,7 +41,9 @@ namespace LevelCreation
                 _platforms = new List<Platforms>();
 
             _currentLinksIndexes = new Platforms();
+
             _platforms.Add(_currentLinksIndexes);
+
             _currentIndex = _platforms.Count - 1;
         }
 
@@ -58,25 +79,6 @@ namespace LevelCreation
             _currentLinksIndexes = this[_currentIndex];
 
             return _currentLinksIndexes;
-        }
-
-        public Platforms this[int index]
-        {
-            get
-            {
-                if (_platforms != null && index >= 0 && index < _platforms.Count)
-                    return _platforms[index];
-
-                return null;
-            }
-            set
-            {
-                if (_platforms == null)
-                    _platforms = new List<Platforms>();
-
-                if (index >= 0 && index < _platforms.Count && value != null)
-                    _platforms[index] = value;
-            }
         }
     }
 }

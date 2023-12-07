@@ -1,7 +1,7 @@
-using UnityEngine;
-using UnityEngine.UI;
 using ConstantValues;
 using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.UI;
 
 namespace Audio
 {
@@ -57,10 +57,10 @@ namespace Audio
                 soundSource.SetVolume();
         }
 
-        private void SetToggleValue(float volumeValue) => 
+        private void SetToggleValue(float volumeValue) =>
             _toggle.isOn = volumeValue == 0;
 
-        private void SetSliderValue(float volumeValue) => 
+        private void SetSliderValue(float volumeValue) =>
             _slider.value = volumeValue;
     }
 }

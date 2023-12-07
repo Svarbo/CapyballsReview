@@ -6,9 +6,9 @@ namespace GameLoading
 {
     public class LevelLoader : MonoBehaviour, ISceneLoadHandler<int>
     {
-        public int LevelNumber { get; private set; }
-
         [SerializeField] private LearningPanel _learningPanel;
+
+        public int LevelNumber { get; private set; }
 
         public void OnSceneLoaded(int levelNumber)
         {

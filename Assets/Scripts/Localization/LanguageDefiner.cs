@@ -9,17 +9,15 @@ namespace Localization
     {
         [SerializeField] private LanguageData _languageData;
 
-        public bool TryDefineLanguage()
+        public void DefineLanguage()
         {
             bool languageWasChanged = _languageData.LanguageWasChanged;
 
             if (languageWasChanged != true)
-                DefineLanguage();
-
-            return !languageWasChanged;
+                SetLanguage();
         }
 
-        private void DefineLanguage()
+        private void SetLanguage()
         {
             string languageDesignation = YandexGamesSdk.Environment.i18n.lang;
             string playerPrefsLanguageIndex = PlayerPrefsNames.LanguageIndex;

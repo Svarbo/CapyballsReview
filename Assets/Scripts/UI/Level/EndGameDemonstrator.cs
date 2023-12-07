@@ -23,7 +23,7 @@ namespace UI
 
         private void DetermineOutcome()
         {
-            if(_ballsContainer.Score < 0 || _ballsContainer.SnairedBallsCount == _ballsContainer.Score)
+            if (_ballsContainer.Score < 0 || _ballsContainer.SnairedBallsCount == _ballsContainer.Score)
                 DeclareDefeat();
             else
                 DeclareWin();

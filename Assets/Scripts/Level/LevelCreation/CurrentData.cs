@@ -2,7 +2,7 @@ using GameLoading;
 using System.Collections.Generic;
 using UnityEngine;
 
-namespace LevelCreation 
+namespace LevelCreation
 {
     public class CurrentData : MonoBehaviour
     {
@@ -17,13 +17,6 @@ namespace LevelCreation
         private int _currentPlatformIndex = -1;
 
         public int NeededPermutationsNumber => _platformIndexes.Count - SpecialPlatformsCount;
-
-        //private void Awake()
-        //{
-        //    Time.timeScale = 1;
-
-        //    PreparePlatformIndexes(_levelLoader.LevelNumber);
-        //}
 
         public int TakeCurrentPlatformIndex()
         {

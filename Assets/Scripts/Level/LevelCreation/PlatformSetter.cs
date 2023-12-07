@@ -15,9 +15,6 @@ namespace LevelCreation
 
         private float LowerPlatformLength => _lowerPlatformPrefab.transform.localScale.x;
 
-        //private void Awake() =>
-        //    SetStartPlatforms();
-
         private void OnEnable() =>
             _endPlatformZone.Achieved += SetNextPlatform;
 

@@ -8,10 +8,10 @@ namespace Audio
         private const float MinVolum = 0f;
         private const float MaxVolum = 1f;
 
-        private void OnEnable() => 
+        private void OnEnable() =>
             WebApplication.InBackgroundChangeEvent += OnInBackgroundChange;
 
-        private void OnDisable() => 
+        private void OnDisable() =>
             WebApplication.InBackgroundChangeEvent -= OnInBackgroundChange;
 
         private void OnInBackgroundChange(bool inBackground)

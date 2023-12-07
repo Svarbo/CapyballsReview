@@ -22,7 +22,7 @@ namespace GameLoading
 
         public void LoadNextLevel()
         {
-            if (_levelLoader.LevelNumber !=  24)//_currentData.PlatformsCount)
+            if (_levelLoader.LevelNumber != _currentData.PlatformsCount)
             {
                 int nextLevelIndex = _levelLoader.LevelNumber + 1;
                 Game.Load(nextLevelIndex);

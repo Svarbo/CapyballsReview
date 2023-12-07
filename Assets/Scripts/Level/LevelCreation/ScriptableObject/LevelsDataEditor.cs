@@ -4,7 +4,7 @@ using UnityEngine;
 namespace LevelCreation
 {
     [CustomEditor(typeof(Data))]
-    public class LevelDataEditor : Editor
+    public class DataEditor : Editor
     {
         private Data _levelsData;
 

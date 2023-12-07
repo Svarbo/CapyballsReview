@@ -26,7 +26,9 @@ namespace Level
                     _ballsContainer = ball.GetComponentInParent<BallsContainer>();
 
                 CountBall(ball);
-                TryOpenGates();
+
+                if (_ballsCount >= _barrier.NeededBallsCount)
+                    OpenGates();
             }
         }
 
@@ -45,19 +47,12 @@ namespace Level
             _snairedBalls.Add(ball);
         }
 
-        private bool TryOpenGates()
+        private void OpenGates()
         {
-            bool isEnough = _ballsCount >= _barrier.NeededBallsCount;
+            _barrier.Open();
 
-            if (isEnough)
-            {
-                _barrier.Open();
-
-                foreach (Ball ball in _snairedBalls)
-                    _ballsContainer.UnsnaireBall(ball);
-            }
-
-            return isEnough;
+            foreach (Ball ball in _snairedBalls)
+                _ballsContainer.UnsnaireBall(ball);
         }
     }
 }

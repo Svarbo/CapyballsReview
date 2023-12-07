@@ -1,8 +1,8 @@
-using UnityEngine;
-using System.Collections.Generic;
-using TMPro;
 using Agava.YandexGames;
 using ConstantValues;
+using System.Collections.Generic;
+using TMPro;
+using UnityEngine;
 using PlayerPrefs = UnityEngine.PlayerPrefs;
 
 namespace UI
@@ -56,14 +56,13 @@ namespace UI
             string leaderName = entry.player.publicName;
 
             if (string.IsNullOrEmpty(leaderName))
-                leaderName = SetAnonimusName();
+                SetAnonimusName(ref leaderName);
 
             return leaderName;
         }
 
-        private string SetAnonimusName()
+        private void SetAnonimusName(ref string leaderName)
         {
-            string leaderName = "";
             int playerLanguageIndex = PlayerPrefs.GetInt(PlayerPrefsNames.LanguageIndex);
 
             if (playerLanguageIndex == LanguageInfo.RussianLanguageIndex)
@@ -72,8 +71,6 @@ namespace UI
                 leaderName = EnglishAnonimTranslation;
             else if (playerLanguageIndex == LanguageInfo.TurkishLanguageIndex)
                 leaderName = TurkishAnonimTranslation;
-
-            return leaderName;
         }
 
         private int GetLeaderScore(LeaderboardEntryResponse entry) =>

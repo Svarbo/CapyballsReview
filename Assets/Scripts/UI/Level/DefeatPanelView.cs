@@ -14,7 +14,6 @@ namespace UI
         {
             _restartButton.onClick.AddListener(_sceneLoader.RestartCurrentLevel);
             _menuButton.onClick.AddListener(_sceneLoader.LoadMainMenu);
-
         }
 
         private void OnDisable()
